@@ -1,0 +1,16 @@
+name: Telegram Bot
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: docker build --build-arg TOKEN=${{ secrets.TOKEN }} -t bot .
+
+      - name: Run tests
+        run: docker run -t bot pytest
