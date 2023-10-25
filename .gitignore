@@ -1,0 +1,6 @@
+.env
+venv
+games.pickle
+users.pickle
+.pytest_cache
+.idea
